@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+function Food({name, image}) {  
+  return (
+    <div>
+      <h1>we love {name}</h1>
+      <a href={image}><img src={image} alt={name}/></a>
+      
+    </div>
+  ); 
+}
+
+const foodILike = [
+  {
+    name: "Kimbab",    
+    image: "http://placeimg.com/200/100/any"
+  },
+  {
+    name: "Dotori",    
+    image: "http://placeimg.com/200/100/any"
+  },
+  {
+    name: "Chukumi",    
+    image: "http://placeimg.com/200/100/any"
+  },
+  {
+    name: "Donkasu",    
+    image: "http://placeimg.com/200/100/any"
+  }
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload...
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     Hello!!~~~     
+      {foodILike.map(dish => 
+        <Food name={dish.name} 
+              image={dish.image}/>
+        )}
+      
     </div>
   );
 }
