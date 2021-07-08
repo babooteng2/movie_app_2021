@@ -1,34 +1,20 @@
 import React from "react"
 class App extends React.Component {
-  constructor(props){
-    super(props);
-    console.log("constructor");
-  }
   state = {
-    count: 0
+    isLoading: true,
+    movies: []
   };
-  add = () => {
-    this.setState(current=>({count:current.count+1}));
-  };
-  minus = () => {
-    this.setState(current=>({count:current.count-1}));
-  };
+  
   componentDidMount() {
-    console.log("ComponentDidMount")
-  }  
+    setTimeout(()=>{
+      this.setState({isLoading:false, book: true});
+    }, 6000)    
+  }
   render() {
-    console.log("render")
+    const { isLoading } = this.state;
     return <div>
-      <h1>The number is: {this.state.count}</h1>
-      <button onClick={this.add}>Add</button>
-      <button onClick={this.minus}>Minus</button>
+      {isLoading ? "Loading" : "We are Ready"}
     </div>
-  }
-  componentDidUpdate() {
-    console.log("ComponentDidUpdate")
-  }
-  componentWillUnmount() {
-    console.log("Bye bye")
   }
 }
 
