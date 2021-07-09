@@ -5,16 +5,18 @@ import "./Movie.css"
 function Movie({id, year, title, summary, poster, rating, genres}) {
     return (
         <div className="movie">
-            <h3 className="movie__title" style={{backgroundColor:"blue"}}>{title}</h3>
-            <h4 className="movie__year">{year}</h4>
-            <p className="movie__summary">{summary}</p>
-            <ul className="genres">
-                {genres.map((genre, index)=>(
-                    <li className="genres__genre" key={index}>{genre}</li>
-                    ))}
-            </ul>
             <img src={poster} alt={title} title={title} />
-            <p className="movie__rating">rating: {rating} / 10</p>
+            <div className="movie__data">
+                <h3 className="movie__title">{title}</h3>
+                <h4 className="movie__year">{year}</h4>
+                <ul className="movie__genres">
+                    {genres.map((genre, index)=>(
+                        <li className="movie_genre" key={index}>{genre}</li>
+                        ))}
+                </ul>
+                <p className="movie__summary">{summary.slice(0, 240)} ...</p>
+                <p className="movie__rating">rating: {rating} / 10</p>
+            </div>
         </div>
     );
 }
