@@ -8,6 +8,7 @@ class App extends React.Component {
     movies: []
   };
 
+  //https://babooteng2.github.io/movie_app_2021/
   //https://yts.mx/api
   getMovies = async () => {
     const {
